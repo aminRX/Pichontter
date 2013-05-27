@@ -6,10 +6,13 @@ Pichontter::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   # Users controller
-  match '/singup', to: 'users#new'
+  match '/signup', to: 'users#new'
+  # Sessions controller
+  match '/signin', to: 'sessions#new'
 
   # resource route
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
