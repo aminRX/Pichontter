@@ -7,7 +7,9 @@ Pichontter::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   # Users controller
   match '/singup', to: 'users#new'
-  get "users/new"
+
+  # resource route
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
