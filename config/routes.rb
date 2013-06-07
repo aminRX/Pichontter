@@ -9,6 +9,7 @@ Pichontter::Application.routes.draw do
   match '/signup', to: 'users#new'
   # Sessions controller
   match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # resource route
   resources :users

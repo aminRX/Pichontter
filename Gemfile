@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-gem 'bootstrap-sass', '2.0.0'
+gem "bootstrap-sass", "~> 2.3.1.3"
 
 gem 'bcrypt-ruby', '3.0.1'
 
@@ -31,6 +31,8 @@ gem 'annotate', '2.5.0', group: :development
 group :test do
 	gem 'capybara', '1.1.2'
 	gem "factory_girl_rails", "~> 4.2.1"
+	gem "cucumber-rails", "~> 1.3.1", require: false
+	gem "database_cleaner", "~> 1.0.1"
 end
 
 group :production do
