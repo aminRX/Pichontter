@@ -31,7 +31,7 @@ subject { page }
       it { should have_link('',href: signout_path) }
   	end
   end
-  describe "for not signin users" do
+  describe "for not signing users" do
     let(:user) { FactoryGirl.create(:user) }
 
     describe "in the user controller" do
@@ -45,6 +45,19 @@ subject { page }
     describe "submitting to the update action" do
       before { put user_path(user) }
       specify { response.should redirect_to(signin_path) }
+    end
+
+    describe "in the microposts controller" do
+      let(:micropost) { FactoryGirl.create(:micropost) }
+      describe "submitting to the create action" do
+        before { post microposts_path }
+        specify { response.should redirect_to(signin_path) }
+      end
+
+      describe "submitting to the update action" do
+        before { delete micropost_path(micropost) }
+        specify { response.should redirect_to(signin_path) }
+      end
     end
   end
   describe "as wrong user" do
@@ -80,6 +93,7 @@ subject { page }
     end
 
   end
+
   describe "in the users controllers" do
 
     describe "visiting the user index" do
@@ -97,8 +111,3 @@ subject { page }
     end
   end
 end
-
-
-
-
-
